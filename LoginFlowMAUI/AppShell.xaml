@@ -5,8 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LoginFlowMAUI"
     xmlns:pages="clr-namespace:LoginFlowMAUI.Pages"
+    xmlns:utilities="clr-namespace:LoginFlowMAUI"
     Shell.FlyoutBehavior="Flyout">
 
+    <!-- Páginas que no se muestran en el menú lateral -->
     <ShellContent
         Title="Loading"
         ContentTemplate="{DataTemplate pages:LoadingPage}"
@@ -21,22 +23,41 @@
         Shell.FlyoutBehavior="Disabled"
         Shell.FlyoutItemIsVisible="False"/>
 
-    <TabBar FlyoutDisplayOptions="AsMultipleItems">
+    <!-- Agrupación de tabs dentro de un único FlyoutItem -->
+    <FlyoutItem Title="Home">
+        <!-- Tab Home -->
         <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:HomePage}"
-        Route="HomePage" />
+                Title="Home"
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="HomePage">
 
+        </ShellContent>
+
+        <!-- Tab Listing -->
         <ShellContent
-        Title="Listing"
-        ContentTemplate="{DataTemplate pages:ListingPage}"
-        Route="ListingPage" />
+                Title="Listing"
+                ContentTemplate="{DataTemplate pages:ListingPage}"
+                Route="ListingPage">
 
+        </ShellContent>
+
+        <!-- Tab Profile -->
         <ShellContent
-        Title="Profile"
-        ContentTemplate="{DataTemplate pages:ProfilePage}"
-        Route="ProfilePage" />
-    </TabBar>
+                Title="Profile"
+                ContentTemplate="{DataTemplate pages:ProfilePage}"
+                Route="ProfilePage">
 
+        </ShellContent>
+    </FlyoutItem>
+
+    <!-- FlyoutItem independiente para Settings -->
+    <FlyoutItem Title="Settings">
+        <ShellContent
+            Title="Settings"
+            ContentTemplate="{DataTemplate pages:SettingsPage}"
+            Route="SettingsPage">
+
+        </ShellContent>
+    </FlyoutItem>
 
 </Shell>

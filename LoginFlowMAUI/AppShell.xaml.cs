@@ -18,7 +18,7 @@ public partial class AppShell : Shell
 
     private async void OnNavigating(object sender, ShellNavigatingEventArgs e)
     {
-        var rutasProtegidas = new[] { nameof(HomePage), nameof(ProfilePage), nameof(ListingPage) };
+        var rutasProtegidas = new[] { nameof(HomePage), nameof(ProfilePage), nameof(ListingPage), nameof(SettingsPage) };
 
         if (rutasProtegidas.Any(ruta => e.Target.Location.OriginalString.Contains(ruta)))
         {
